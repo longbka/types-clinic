@@ -1,22 +1,38 @@
 {
   "name": "@clinic/shared",
   "version": "1.0.0",
+  "description": "Shared utilities, schemas and types for Clinic projects.",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
     "typescript": "^5.6.3"
   },
   "dependencies": {
-    "install": "^0.13.0",
-    "zod": "^4.1.12"
-  }
+    "zod": "4.1.12"
+  },
+  "repository": { 
+    "type": "git",
+    "url": "https://github.com/longbka/types-clinic.git"
+  },
+  "author": "Long",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "shared",
+    "clinic",
+    "utils",
+    "zod",
+    "typescript"
+  ]
 }

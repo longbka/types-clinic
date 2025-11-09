@@ -1,9 +1,9 @@
 import * as z from "zod";
 
 export const CreateAppointmentSchema = z.object({
-  doctorId: z.uuid(),
-  startAt: z.iso.datetime(),
-  endAt: z.iso.datetime(),
+  doctorId: z.string().uuid(),
+  startAt: z.string().datetime(),
+  endAt: z.string().datetime(),
   service: z.string().min(1),
 });
 

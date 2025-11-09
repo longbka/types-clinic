@@ -1,2 +1,2 @@
-export * from "./schemas/appointment.ts";
-export * from "./schemas/user.ts";
+export * from "./schemas/appointment";
+export * from "./schemas/user";

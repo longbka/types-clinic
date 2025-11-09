@@ -1,23 +1,28 @@
 {
   "name": "@tclinic/shared",
-  "version": "1.0.0",
-  "description": "Shared utilities, schemas and types for Clinic projects.",
-  "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "version": "1.0.2",
+  "description": "Shared utilities & schemas for Clinic projects",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "clean": "rm -rf dist",
-    "prepublishOnly": "pnpm run build"
+    "clean": "rimraf dist",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build": "pnpm run clean && pnpm run build:cjs && pnpm run build:esm && pnpm run build:types",
+    "prepare": "pnpm run build",
+    "pack:check": "pnpm pack && tar -tzf $(ls *.tgz | tail -n1)"
   },
-  "devDependencies": {
-    "typescript": "^5.6.3"
-  },
-  "dependencies": {
-    "zod": "4.1.12"
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
   },
   "repository": {
     "type": "git",
@@ -29,11 +34,17 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "devDependencies": {
+    "rimraf": "^5.0.10",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
   "keywords": [
     "shared",
     "clinic",
-    "utils",
-    "zod",
-    "typescript"
+    "typescript",
+    "zod"
   ]
 }

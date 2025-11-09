@@ -1,5 +1,5 @@
 {
-  "name": "@clinic/shared",
+  "name": "@tclinic/shared",
   "version": "1.0.0",
   "description": "Shared utilities, schemas and types for Clinic projects.",
   "type": "module",
